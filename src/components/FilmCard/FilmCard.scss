@@ -1,0 +1,38 @@
+.filmCard {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #141414;
+    outline: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    outline-offset: 4px;
+    width: 250px;
+
+    &:hover {
+      outline: 4px solid rgba(255, 244, 244, 0.612);
+    }
+
+    a{
+      display: flex;
+      img{
+        cursor: pointer;
+        width: 250px;
+      }
+    }
+
+    .filmTitle{
+        padding: 6px 10px 12px 10px;
+
+
+        span {
+          cursor: pointer;
+          font-size: 19px;
+          font-weight: 600;
+          color: white;
+          &:hover {
+            color: rgb(202, 36, 36);
+          }
+        }
+      
+    }
+}

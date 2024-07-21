@@ -1,0 +1,35 @@
+header {
+  background-color: rgba(0, 0, 0, 0.895);
+  z-index: 99;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(4px);
+
+  .container {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.215);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 5px 40px;
+    justify-content: space-between;
+
+    color: rgb(219, 32, 32);
+
+    .genresList {
+      display: flex;
+      padding: 10px 30px;
+      gap: 10px 6px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 38px;
+      cursor: pointer;
+      color: rgb(219, 32, 32);
+    }
+  }
+}

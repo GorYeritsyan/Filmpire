@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: Oswald;
+  color: white;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url("./fonts/Oswald/static/Oswald-Regular.ttf");
+}
+
+a {
+  text-decoration: none;
+}
+
+
