@@ -1,13 +1,12 @@
-import {useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { changePage } from "../../store/slices/filmsSlice";
+import { changePage} from "../../store/slices/filmsSlice";
 
 import "./Pagination.scss";
 
 const Pagination = () => {
   const dispatch = useAppDispatch();
-
   //pagination start
   let portionSize = 10;
   const [portionNumber, setPortionNumber] = useState(1);
@@ -18,7 +17,6 @@ const Pagination = () => {
   const { totalPages, activePage } = useAppSelector(state => state.filmsData);
 
   const arr: number[] = [];
-
   const pages = useMemo(() => {
     for (let i = 1; i <= totalPages; i++) {
       arr.push(i);

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { FilmsResponseDataType, GenresInitStateType } from "../../types/types";
 import { MoviesAPI } from "../../api/api";
+import { getTotalPages } from "./filmsSlice";
 
 export const fetchGenresList = createAsyncThunk<GenresInitStateType, void, {}>(
   "fetchGenresList",
@@ -14,8 +15,9 @@ export const fetchOneGenre = createAsyncThunk<
   FilmsResponseDataType,
   { genreId?: string; page: number },
   {}
->("fetchOneGenre", async ({ genreId, page }) => {
+>("fetchOneGenre", async ({ genreId, page }, {dispatch}) => {
   const res = await MoviesAPI.getOneGenre(genreId, page);
+  dispatch(getTotalPages({total_pages: res.data.total_pages}))
   return res.data;
 });
 
