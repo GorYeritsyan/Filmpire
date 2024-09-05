@@ -22,7 +22,7 @@ const Header = () => {
     <header>
       <div className="container">
         <NavLink onClick={() => dispatch(changePage(1))} to='/'>
-        <h2>FilmsEmpire</h2>
+        <h2>FILMPIRE</h2>
         </NavLink>
         <div className="genresList">
           {genres.map((genre) => (

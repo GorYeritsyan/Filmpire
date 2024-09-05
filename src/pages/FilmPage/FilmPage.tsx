@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchOneFilm, fetchTrailer } from "../../store/slices/filmsSlice";
 import { imgUrl } from "../../api/api";
-
 import "./FilmPage.scss";
+
 
 const FilmPage = () => {
   const { id } = useParams();

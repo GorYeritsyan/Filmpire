@@ -2,8 +2,9 @@ import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchFilms } from "../../store/slices/filmsSlice";
-import FilmCard from "../../components/FilmCard/FilmCard";
 import Pagination from "../../components/Pagination/Pagination";
+import FilmCard from "../../components/FilmCard/FilmCard";
+//lazy loading for film cards
 
 import "./Home.scss";
 
@@ -30,7 +31,7 @@ const Home = () => {
                 <FilmCard key={film.id} film={film} />
               ))}
             </div>
-            
+
             <Pagination />
           </>
         )}

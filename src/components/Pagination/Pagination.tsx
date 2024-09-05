@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import {useMemo, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { changePage } from "../../store/slices/filmsSlice";
@@ -25,6 +25,7 @@ const Pagination = () => {
     }
     return arr;
   }, [arr]);
+
 
   function changeCurrentPage(pageNumber: number) {
     window.scrollTo(0, 0);
@@ -63,5 +64,6 @@ const Pagination = () => {
     </div>
   );
 };
+
 
 export default Pagination;

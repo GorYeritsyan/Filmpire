@@ -3,10 +3,12 @@ import { useParams } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchOneGenre } from "../../store/slices/genresSlice";
-import FilmCard from "../../components/FilmCard/FilmCard";
 import Pagination from "../../components/Pagination/Pagination";
+import FilmCard from "../../components/FilmCard/FilmCard";
 
 import "./GenrePage.scss";
+
+
 
 const GenrePage = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +32,7 @@ const GenrePage = () => {
             <div className="wrapper">
               <div className="item">
                 {oneGenre.map((el) => (
-                  <FilmCard film={el} />
+                    <FilmCard film={el} />
                 ))}
               </div>
               <Pagination />
