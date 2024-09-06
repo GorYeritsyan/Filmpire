@@ -6,8 +6,6 @@ const token = import.meta.env.VITE_BEAR_TOKEN;
 
 export const imgUrl = "https://image.tmdb.org/t/p";
 
-
-
 const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   headers: {

@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
+
 import { OneFilmDataType } from "../../types/types";
 import { imgUrl } from "../../api/api";
+import FilmTitle from "./FilmTitle";
 
 import "./FilmCard.scss";
 
-type FilmCardProps = {
+export type FilmCardProps = {
   film: OneFilmDataType;
 };
 
@@ -14,9 +16,8 @@ const FilmCard = ({ film }: FilmCardProps) => {
       <NavLink to={`/${film.id}`}>
         <img src={`${imgUrl}/w500${film.poster_path}`} alt="" />
       </NavLink>
-      <div className="filmTitle">
-        <span>{film.title}</span>
-      </div>
+
+      <FilmTitle film={film} />
     </div>
   );
 };
