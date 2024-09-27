@@ -67,6 +67,7 @@ const initialState: FilmsInitStateType = {
   activePage: 1,
   searchedFilms: [],
   inputValue: "",
+  filmPortionNumber: 1
 };
 
 const filmsSlice = createSlice({
@@ -83,6 +84,10 @@ const filmsSlice = createSlice({
     changeInputValue(state, action) {
       state.inputValue = action.payload;
     },
+
+    changePortionNumber(state, action) {
+      state.filmPortionNumber = action.payload
+    }
   },
 
   extraReducers: (builder) => {
@@ -110,6 +115,6 @@ const filmsSlice = createSlice({
   },
 });
 
-export const { getTotalPages, changePage, changeInputValue } = filmsSlice.actions;
+export const { getTotalPages, changePage, changeInputValue, changePortionNumber } = filmsSlice.actions;
 
 export default filmsSlice.reducer;

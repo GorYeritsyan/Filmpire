@@ -6,7 +6,8 @@ export type FilmsInitStateType = {
   oneFilm?: OneFilmDataType,
   activePage: number,
   searchedFilms: OneFilmDataType[],
-  inputValue: string
+  inputValue: string,
+  filmPortionNumber: number
 };
 
 export type FilmsResponseDataType = {

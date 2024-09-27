@@ -1,29 +1,37 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { changePage} from "../../store/slices/filmsSlice";
+import { changePage } from "../../store/slices/filmsSlice";
+import { changePortionNumber } from "../../store/slices/filmsSlice";
 
 import "./Pagination.scss";
 
 const Pagination = () => {
   const dispatch = useAppDispatch();
+  const {filmPortionNumber} = useAppSelector(state => state.filmsData)
   //pagination start
   let portionSize = 10;
-  const [portionNumber, setPortionNumber] = useState(1);
-  let leftPortionNumber = (portionNumber - 1) * portionSize + 1;
-  let rightPortionNumber = portionNumber * portionSize;
+  // const [portionNumber, setPortionNumber] = useState(1);
+  let leftPortionNumber = (filmPortionNumber - 1) * portionSize + 1;
+  let rightPortionNumber = filmPortionNumber * portionSize;
   //pagination end
 
-  const { totalPages, activePage } = useAppSelector(state => state.filmsData);
+  const { totalPages, activePage } = useAppSelector((state) => state.filmsData);
 
-  const arr: number[] = [];
-  const pages = useMemo(() => {
+ const pages = useCallback(() => {
     for (let i = 1; i <= totalPages; i++) {
       arr.push(i);
     }
-    return arr;
-  }, [arr]);
+    return arr
+  }, [filmPortionNumber]);
 
+  const arr: number[] = [];
+  // const pages = useMemo(() => {
+  //   for (let i = 1; i <= totalPages; i++) {
+  //     arr.push(i);
+  //   }
+  //   return arr;
+  // }, [arr]);
 
   function changeCurrentPage(pageNumber: number) {
     window.scrollTo(0, 0);
@@ -32,16 +40,15 @@ const Pagination = () => {
 
   return (
     <div className="pagination">
-
       {/* prev button */}
-      {portionNumber > 1 && (
-        <button onClick={() => setPortionNumber(portionNumber - 1)}>
+      {filmPortionNumber > 1 && (
+        <button onClick={() => dispatch(changePortionNumber(filmPortionNumber - 1))}>
           Prev
         </button>
       )}
 
       {/* Center buttons for pagination */}
-      {pages
+      {pages()
         .filter((el) => el >= leftPortionNumber && el <= rightPortionNumber)
         .map((el) => (
           <button
@@ -53,15 +60,14 @@ const Pagination = () => {
           </button>
         ))}
 
-        {/* next button */}
+      {/* next button */}
       {rightPortionNumber + 1 !== totalPages && (
-        <button onClick={() => setPortionNumber(portionNumber + 1)}>
+        <button onClick={() => dispatch(changePortionNumber(filmPortionNumber + 1))}>
           Next
         </button>
       )}
     </div>
   );
 };
-
 
 export default Pagination;
